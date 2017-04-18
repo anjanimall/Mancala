@@ -20,9 +20,9 @@ public class DarkDesign implements BoardDesign {
 			g.fill(new Ellipse2D.Double(155 + (130 * i), 50, 100, 125));
 			g.fill(new Ellipse2D.Double(155 + (130 * i), 225, 100, 125));
 		}
-		RoundRectangle2D mancalaB = new RoundRectangle2D.Double(935, 50, 100, 300, 60 ,60);
+		RoundRectangle2D mancalaB = new RoundRectangle2D.Double(935, 50, 100, 300, 60, 60);
 		g.fill(mancalaB);
-		
+
 	}
 
 }
