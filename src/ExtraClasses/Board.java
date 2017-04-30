@@ -1,3 +1,4 @@
+package ExtraClasses;
 import javax.swing.JFrame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

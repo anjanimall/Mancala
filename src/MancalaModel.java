@@ -5,16 +5,18 @@ import javax.swing.event.ChangeListener;
 public class MancalaModel {
 
 	private ArrayList<ChangeListener> listeners;
-	private ArrayList<int[][]> pastBoards;
-	private int[][] currentBoard;
+	private BoardDS pastBoard;
+	private BoardDS currentBoard;
+	private DesignComponent dc;
 
-	public MancalaModel() {
-		// TODO: Initialize the instance variables
-		// Modify the constructor header if necessary
+	public MancalaModel(BoardDS board) {
+		this.listeners = new ArrayList<>();
+		currentBoard = board;
+		
 	}
 
 	public void attach(ChangeListener l) {
-		// TODO: Add listener to to the arraylist.
+		listeners.add(l);
 	}
 
 	public void setPreviousBoard() {
