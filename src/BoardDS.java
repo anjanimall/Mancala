@@ -1,23 +1,22 @@
+import java.util.ArrayList;
 
 public class BoardDS {
 
-	private int[][] pits;
-	private int mancalaA;
-	private int mancalaB;
+	//private int[][] pits;
+	private ArrayList<Pit> pits;
+	private int mancalaA; //right
+	private int mancalaB; //left
+	private boolean playerOne;
 	
 	public BoardDS(){
-		this.pits = new int[6][6];
+		//this.pits = new int[6][6];
+		pits = new ArrayList<Pit>();
 		setMancalaA(0);
 		setMancalaB(0);
+		playerOne = true;//player one turn on true
 	}
 	
-	public BoardDS(int num, int mancalaA, int mancalaB){
-		this.setPits(num);
-		this.setMancalaA(mancalaA);
-		this.setMancalaB(mancalaB);
-	}
-
-	public int[][] getPits() {
+	public ArrayList<Pit> getPits() {
 		return pits;
 	}
 

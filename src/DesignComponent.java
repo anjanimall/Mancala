@@ -11,9 +11,12 @@ import javax.swing.JComponent;
 public class DesignComponent extends JComponent {
 
 	private BoardDesign design;
+	int stones;
 
-	public DesignComponent(BoardDesign design) {
+	public DesignComponent(BoardDesign design, BoardDS boardds) {
 		this.design = design;
+		
+		this.stones = stones;
 	}
 
 	public void paintComponent(Graphics g) {
@@ -26,9 +29,9 @@ public class DesignComponent extends JComponent {
 		g2.setColor(design.getPitColor());
 		g2.fill(mancalaA);
 		for (int i = 0; i < 6; i++) {
-			Pit pit = new Pit(i, 3, 155 + (110 * i), 50, design.getPitColor());
+			Pit pit = new Pit(i, stones, 155 + (110 * i), 50, design.getPitColor());
 			pit.paintComponent(g);
-			Pit pit2 = new Pit(i+6, 3, 155 + (110 * i), 225, design.getPitColor());
+			Pit pit2 = new Pit(i+6, stones, 155 + (110 * i), 225, design.getPitColor());
 			pit2.paintComponent(g);
 		}
 		RoundRectangle2D mancalaB = new RoundRectangle2D.Double(830, 50, 100, 300, 60, 60);
