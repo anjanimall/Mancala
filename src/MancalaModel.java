@@ -34,13 +34,16 @@ public class MancalaModel {
 		ArrayList<Integer> values = currentBoard.getPits();
 		int currentVal = values.get(index);
 		values.set(index, 0);
-		index +=1;
 		for(int i = 1; i<=currentVal; i++){
-			if(index+i>11){
-				index=0;
+			index +=1;
+			if(index+1 > 11){
+				values.set(index, (values.get(index))+1);
+				index=-1;
 			}
-			values.set(index, values.get(index)+1);
-			index++;
+			else {
+				values.set(index, (values.get(index))+1);
+			}
+			
 		}
 		
 		for(ChangeListener l: listeners){

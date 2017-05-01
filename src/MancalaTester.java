@@ -18,6 +18,7 @@ public class MancalaTester {
 		board.setMancalaA(5);
 		board.setMancalaB(7);
 		MancalaModel model = new MancalaModel(board);
+		//model.update(9);
 		JFrame frame = new JFrame();
 		//MancalaPanel panel = new MancalaPanel(model, new ColorfulDesign());
 	DesignComponent bd = new DesignComponent(new ColorfulDesign(), board);
