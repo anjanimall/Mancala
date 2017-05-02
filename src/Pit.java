@@ -56,6 +56,26 @@ public class Pit extends JComponent {
 		return total <= 2500;
 	}
 	
+	public int getN(){
+		return n;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
+	
+	public int getX(){
+		return x;
+	}
+	
+	public int getY(){
+		return y;
+	}
+	
+	public int getPitNum(){
+		return pitNum;
+	}
+	
 	
 	
 }

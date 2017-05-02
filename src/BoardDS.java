@@ -6,14 +6,18 @@ public class BoardDS {
 	private ArrayList<Integer> pits;
 	private int mancalaA; //right
 	private int mancalaB; //left
-	private boolean playerOne;
 	
 	public BoardDS(){
 		//this.pits = new int[6][6];
 		pits = new ArrayList<Integer>();
 		setMancalaA(0);
 		setMancalaB(0);
-		playerOne = true;//player one turn on true
+	}
+	
+	public BoardDS(ArrayList<Integer> p , int mancalaA, int mancalaB){
+		pits = p;
+		this.mancalaA = mancalaA;
+		this.mancalaB = mancalaB;
 	}
 	
 	public ArrayList<Integer> getPits() {

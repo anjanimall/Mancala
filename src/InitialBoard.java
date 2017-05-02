@@ -2,12 +2,14 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
 public class InitialBoard {
+	static boolean turn = true;
 	public static void main(String[] args) {
 		//MancalaModel model = new MancalaModel();
 		final JFrame frame = new JFrame();
@@ -53,14 +55,21 @@ public class InitialBoard {
 			System.out.println("Default Design");
 		}
 		MancalaModel model = new MancalaModel(boardData);
-		
+		//boolean turn = true;
 		MancalaPanel panel = new MancalaPanel(model, design);
 		model.attach(panel);
 		panel.addMouseListener(new MouseAdapter(){
+			//boolean turn = true;
 			public void mouseClicked(MouseEvent e){
 				for(Pit p: panel.getDesignComponent().getPits()){
 					if(p.containsPoint(e.getPoint())) {
-						model.update(p.getIndex());
+						int index = p.getIndex();
+						if((turn && index>5 && index<12) || !turn && index<6) {
+							boolean inMancala = model.update(index, turn);
+							if(!inMancala)
+								turn = !turn;
+							System.out.println(turn);
+						}
 					}
 				}
 			}
@@ -68,6 +77,16 @@ public class InitialBoard {
 		frame.setLayout(new BorderLayout());
 		
 		JButton undo = new JButton("Undo");
+		undo.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int count = 0;
+				model.setPreviousBoard();
+				
+			}
+		});
 		frame.add(undo, BorderLayout.NORTH);
 		frame.add(panel, BorderLayout.CENTER);
 		

@@ -37,12 +37,12 @@ public class DesignComponent extends JComponent {
 		Rectangle2D box = new Rectangle2D.Double(0, 0, 960, 400);
 		g2.setColor(design.getBackgroundColor());
 		g2.fill(box);
-		Mancala mancalaA = new Mancala(board.getMancalaA(), 25, 50, design.getPitColor());
+		Mancala mancalaA = new Mancala(board.getMancalaB(), 25, 50, design.getPitColor());
 		mancalaA.paintComponent(g);
 		for(Pit pit: pits){
 			pit.paintComponent(g);
 		}
-		Mancala mancalaB = new Mancala(board.getMancalaB(), 830, 50, design.getPitColor());
+		Mancala mancalaB = new Mancala(board.getMancalaA(), 830, 50, design.getPitColor());
 		mancalaB.paintComponent(g);
 	}
 	
