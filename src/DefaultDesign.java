@@ -1,5 +1,10 @@
 import java.awt.Color;
 
+/**
+ * 
+ * @author Setty, Mallampati, Elmoghany
+ *
+ */
 public class DefaultDesign implements BoardDesign {
 	public Color getBackgroundColor(){
 		return new Color(139, 69, 19);
@@ -8,6 +13,4 @@ public class DefaultDesign implements BoardDesign {
 	public Color getPitColor(){
 		return new Color(222, 184, 135);
 	}
-	
-	
 }

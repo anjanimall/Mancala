@@ -1,19 +1,12 @@
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.*;
 import javax.swing.JPanel;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import javax.swing.event.*;
 
+/**
+ * 
+ * @author Setty, Mallampati, Elmoghany
+ *
+ */
 public class MancalaPanel extends JPanel implements ChangeListener {
 
 	private static final long serialVersionUID = 1L;
@@ -26,8 +19,13 @@ public class MancalaPanel extends JPanel implements ChangeListener {
 	// BoardDesign or numStones. It will just go through all the steps, and
 	// probably throw some null error.
 	// We should figure out how to fix this
+	
+	/**
+	 * 
+	 * @param m
+	 * @param d
+	 */
 	public MancalaPanel(MancalaModel m, BoardDesign d) {
-		
 		model = m;
 		design = d;
 		board = model.getBoard();
@@ -63,28 +61,33 @@ public class MancalaPanel extends JPanel implements ChangeListener {
 
 	}
 	
+	/**
+	 * 
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		dc = new DesignComponent(design, board);
 		dc.paintComponent(g);
-		
-		
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public DesignComponent getDesignComponent(){
 		return dc;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		// TODO: Get the new data and assign it to mancalaStones
-
 		// TODO: Need to repaint the board with new data
-		
 		board = model.getBoard();
 		System.out.println("State changed");
 		repaint();
-
 	}
 
 }
