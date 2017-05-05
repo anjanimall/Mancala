@@ -46,10 +46,6 @@ public class MancalaModel {
 	 * Undo functionality
 	 */
 	public void setPreviousBoard() {
-		// TODO: Make the current board equal to the last board in the arraylist
-		// and remove that board.
-		// TODO: Notify all listeners of the change
-		 
 		if(countA > 2 && !pastTurnA) {
 			countA = 0;
 		} else if(countB > 2 && pastTurnA) {
@@ -62,8 +58,10 @@ public class MancalaModel {
 		
 		if(pastTurnA) {
 			countA++;
+			countB = 0;
 		} else if(!pastTurnA) {
 			countB++;
+			countA = 0;
 		}
 
 		//System.out.println("CountA: " + countA);
