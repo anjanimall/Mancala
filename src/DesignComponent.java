@@ -72,11 +72,11 @@ public class DesignComponent extends JComponent {
 		}
 		g2.setFont(new Font("Serif", Font.BOLD, 80));
 		if(MancalaModel.winner == Winners.draw) {
-			g2.drawString("Player A & Player B Tied!", 100, 200);
+			g2.drawString("Player A & Player B Tied!", 50, 215);
 		} else if(MancalaModel.winner == Winners.winnerA) {
-			g2.drawString("Player A Won!", 200, 200);
+			g2.drawString("Player A Won!", 240, 215);
 		} else if(MancalaModel.winner == Winners.winnerB) {
-			g2.drawString("Player B Won!", 200, 200);
+			g2.drawString("Player B Won!", 240, 215);
 		}
 		
 	}
