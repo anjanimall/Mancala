@@ -101,6 +101,9 @@ public class MancalaModel {
 		
 		ArrayList<Integer> values = currentBoard.getPits();
 		int currentVal = values.get(index);
+		if(currentVal == 0) {
+			return playerA;
+		}
 		values.set(index, 0);
 		index += 1;
 		boolean first = true;
