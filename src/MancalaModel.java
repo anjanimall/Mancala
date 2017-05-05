@@ -2,9 +2,8 @@ import java.util.*;
 import javax.swing.event.*;
 
 /**
- * 
+ * Model class of the MVC architecture
  * @author Setty, Mallampati, Elmoghany
- *
  */
 public class MancalaModel {
 
@@ -18,8 +17,8 @@ public class MancalaModel {
 	private int countB = 0;
 
 	/**
-	 * 
-	 * @param board
+	 * Creates a MancalaModel object
+	 * @param board the BoardDS object
 	 */
 	public MancalaModel(BoardDS board) {
 		this.listeners = new ArrayList<>();
@@ -27,23 +26,24 @@ public class MancalaModel {
 	}
 
 	/**
-	 * 
-	 * @param l
+	 * Attaches a ChangeListener to the ArrayList of ChangeListeners
+	 * @param l ChangeListener
 	 */
 	public void attach(ChangeListener l) {
 		listeners.add(l);
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Gets the current board
+	 * @return the currentBoard
 	 */
 	public BoardDS getBoard(){
 		return currentBoard;
 	}
 
 	/**
-	 * 
+	 * Sets the previous board
+	 * Undo functionality
 	 */
 	public void setPreviousBoard() {
 		// TODO: Make the current board equal to the last board in the arraylist
@@ -70,7 +70,7 @@ public class MancalaModel {
 		//System.out.println("CountB: " + countB);
 		
 		if(!pastMancala) {
-			InitialBoard.turn = !InitialBoard.turn;
+			MancalaTest.turn = !MancalaTest.turn;
 		}
 		ArrayList<Integer> pits2 = new ArrayList<>();
 		for(int i = 0; i < 12; i++){
@@ -86,10 +86,12 @@ public class MancalaModel {
 	}
 
 	/**
-	 * 
-	 * @param index
-	 * @param playerA
-	 * @return
+	 * Updates the board according to the user selection
+	 * Game logic is implemented
+	 * Notifies Listeners of change
+	 * @param index the index of the selected pit
+	 * @param playerA the player
+	 * @return true/false if the pebble landed in the players' mancala
 	 */
 	public boolean update(int index, boolean playerA) {
 		//System.out.println(index);
@@ -210,10 +212,6 @@ public class MancalaModel {
 		for(ChangeListener l: listeners){
 			l.stateChanged(new ChangeEvent(this));
 		}
-		// TODO: This is where the game logic is implemented
-		// TODO: Move the currentBoard to the pastBoards and assign new
-		// currentBoard based on game logic.
-		// TODO: Notify the listeners of change
 		return inMancala;
 	}
 }

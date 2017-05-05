@@ -1,9 +1,8 @@
 import java.util.*;
 
 /**
- * 
+ * BoardDS includes creating BoardDS objects, getPits, setPits, getMancalaA/B, setMancalaA/B
  * @author Setty, Mallampati, Elmoghany
- *
  */
 public class BoardDS {
 	
@@ -12,7 +11,8 @@ public class BoardDS {
 	private int mancalaB; //left
 	
 	/**
-	 * 
+	 * Creates a BoardDS object
+	 * Initializes Integer ArrayList of pits and sets Mancala A & B to have 0 pebbles
 	 */
 	public BoardDS(){
 		pits = new ArrayList<Integer>();
@@ -21,10 +21,10 @@ public class BoardDS {
 	}
 	
 	/**
-	 * 
-	 * @param p
-	 * @param mancalaA
-	 * @param mancalaB
+	 * Creates a BoardDS object with the given parameters
+	 * @param p the Integer ArrayList of pits
+	 * @param mancalaA mancala A
+	 * @param mancalaB mancala B
 	 */
 	public BoardDS(ArrayList<Integer> p , int mancalaA, int mancalaB){
 		pits = p;

@@ -1,9 +1,8 @@
 import java.awt.Color;
 
 /**
- * 
+ * Default Design option
  * @author Setty, Mallampati, Elmoghany
- *
  */
 public class DefaultDesign implements BoardDesign {
 	public Color getBackgroundColor(){

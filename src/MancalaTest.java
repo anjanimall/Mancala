@@ -3,11 +3,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * 
+ * Tester class for Mancala Game
  * @author Setty, Mallampati, Elmoghany
- *
  */
-public class InitialBoard {
+public class MancalaTest {
 	
 	static boolean turn = true;
 	

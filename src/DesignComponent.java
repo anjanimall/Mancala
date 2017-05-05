@@ -4,9 +4,8 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
 
 /**
- * 
+ * DesignComponent designs and creates the Mancala Board
  * @author Setty, Mallampati, Elmoghany
- * 
  */
 public class DesignComponent extends JComponent {
 	
@@ -15,9 +14,10 @@ public class DesignComponent extends JComponent {
 	private ArrayList<Pit> pits;
 
 	/**
-	 * 
-	 * @param design
-	 * @param boardDS
+	 * Creates a DesignComponent object
+	 * Initializes the pits
+	 * @param design the BoardDesign object
+	 * @param boardDS the BoardDS object
 	 */
 	public DesignComponent(BoardDesign design, BoardDS boardDS) {
 		this.design = design;
@@ -33,7 +33,7 @@ public class DesignComponent extends JComponent {
 	}
 
 	/**
-	 * 
+	 * Paints the Mancala board
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -65,7 +65,7 @@ public class DesignComponent extends JComponent {
 		g2.drawString("Player A -->", 430, 370);
 		g2.drawString("Mancala B", 36, 40);
 		g2.drawString("Mancala A", 840, 40);
-		if(InitialBoard.turn){
+		if(MancalaTest.turn){
 			g2.drawString("Player A's Turn", 430, 190);
 		} else {
 			g2.drawString("Player B's Turn", 430, 190);
@@ -82,11 +82,10 @@ public class DesignComponent extends JComponent {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Gets the ArrayList of pits
+	 * @return ArrayList of pits
 	 */
 	public ArrayList<Pit> getPits(){
 		return pits;
 	}
-
 }

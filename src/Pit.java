@@ -3,28 +3,27 @@ import java.awt.geom.*;
 import javax.swing.JComponent;
 
 /**
- * 
+ * Pit class includes the design and creation of the pits
  * @author Setty, Mallampati, Elmoghany
- *
  */
 public class Pit extends JComponent {
 	
-	private int n;
+	private int numOfStones;
 	private int x;
 	private int y;
 	private Color color;
 	private int pitNum;
 
 	/**
-	 * 
-	 * @param pitNum
-	 * @param n
-	 * @param x
-	 * @param y
-	 * @param color
+	 * Creates a Pit object
+	 * @param pitNum the number of the pit
+	 * @param n the number of pebbles
+	 * @param x the x coordinate
+	 * @param y the y coordinate
+	 * @param color the color
 	 */
 	public Pit(int pitNum, int n, int x, int y, Color color){
-		this.n = n;
+		this.numOfStones = n;
 		this.x = x;
 		this.y = y;
 		this.color = color;
@@ -32,7 +31,7 @@ public class Pit extends JComponent {
 	}
 	
 	/**
-	 * 
+	 * Paints the pits and the pebbles that go into the pit
 	 */
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
@@ -43,7 +42,7 @@ public class Pit extends JComponent {
 		g2.fill(pitCircle);
 		int distanceX = 30;
 		int distanceY = 40;
-		for(int i = 0; i < n; i++){
+		for(int i = 0; i < numOfStones; i++){
 			Ellipse2D pitBall = new Ellipse2D.Double(x+distanceX, y+distanceY, 10, 10);
 			g2.setColor(Color.BLACK);
 			g2.fill(pitBall);
@@ -56,17 +55,17 @@ public class Pit extends JComponent {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Gets the number of the pit
+	 * @return the pitNum
 	 */
 	public int getIndex(){
 		return pitNum;
 	}
 	
 	/**
-	 * 
-	 * @param p
-	 * @return
+	 * Makes sure that the point selected is inside the pit
+	 * @param p the point selected
+	 * @return true, if the point selected is inside the pit/false, if otherwise
 	 */
 	public boolean containsPoint(Point p){
 		double xVal = p.getX() - x - 50;
